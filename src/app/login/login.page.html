@@ -10,13 +10,21 @@
           <div class="login-form">
             <img src="assets/img/avatar.png" alt="Seattle Consulting Myanmar">
             <p>SCM POS System</p>
-              <form>
-                <ion-label >Please Enter User Id</ion-label>
-                <ion-input placeholder="ID"></ion-input>
-                <ion-button>Login</ion-button>
+              <form [formGroup]="loginForm" (ngSubmit)="submit()">
+                <div class="login-form-input">
+                  <ion-label >Please Enter User Id</ion-label>
+                  <ion-input formControlName="userId" placeholder="ID" inputmode="text"></ion-input>
+                  <div *ngFor="let error of errorMessages.userId">
+                    <ng-container *ngIf="userId.hasError(error.type) && (userId.dirty || userId.touched)">
+                      <small class="error">* {{error.message}}</small>
+                    </ng-container>
+                  </div>
+                  <div *ngIf="invalidUser">
+                    <small class="error">* Invalid User</small>
+                  </div>
+                  <ion-button type="submit" [ngClass]="invalidUser ? 'dangerBtn' : 'blueBtn'">Login</ion-button>
+                </div>
               </form>
-              
-           
           </div>
           
         </ion-col>

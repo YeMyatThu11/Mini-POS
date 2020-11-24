@@ -1,7 +1,23 @@
 ion-toolbar{
         color: #fff;
-    --background:#1F63AE;
-    ion-buttons{
-        position: absolute;
-    }
+        --background:#1F63AE;
+        ion-buttons{
+            position: absolute;
+        }
+}
+.home{
+    display: flex!important;
+    height: 100%;
+    justify-content: center;
+   
+}
+.add-btn{
+   
+    width: 85%;
+    --background:#ECF9FF;
+    color: #116C93;
+    margin-top: 30px;
+}
+.addItem{
+    padding-left: 10px;
 }

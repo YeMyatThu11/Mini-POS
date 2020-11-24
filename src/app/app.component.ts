@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Recent',
       url: '/recent',
-      icon: 'megaphone'
+      icon: 'time'
     },
     {
       title: 'About',

@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder,Validators,FormGroup} from '@angular/forms';
+import {FormBuilder,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
@@ -8,33 +8,50 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  private loginFormData: FormGroup;
-  get userId() {
-    return this.loginFormData.get("userId");
+  invalidUser=false;
+ 
+  get userId(){
+    return this.loginForm.get('userId');
   }
-  public errorMessages = {
-    userId: [
-      {
-        type: "required",
+  public errorMessages={
+    userId:[
+      {type: "required",
         message: "Please Enter valid User ID",
-      },
+      }
     ]
   }
-  constructor(private FormBuilder:FormBuilder,private router:Router) { 
-    this.loginFormData=this.FormBuilder.group({
-      userId:["",[Validators.required,Validators.maxLength(20)]]
-    });
+  
+  loginForm =this.formBuilder.group({
+    userId:['',[Validators.required]],
+  })
+  constructor(
+    private formBuilder:FormBuilder,
+    private router:Router
+    ) { 
+      
   }
-  public submit(){
-    let userId=this.loginFormData.value.name;
-    if(this.validateUser(userId)){
-      this.router.navigate['home'];
-    }
-  }
+  
   ngOnInit() {
   }
-  validateUser(userId){ 
-    return true;
+  public submit(){
+    console.log();
+    if(this.validateUserId(this.loginForm.value.userId)){
+      this.router.navigate(['home']);
+      this.invalidUser=false;
+    }
+    else{
+      this.invalidUser=true;
+    }
+   
+  }
+  
+  validateUserId(loginUserId){
+    if(loginUserId=="A001"){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
   
 }
