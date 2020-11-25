@@ -1,0 +1,38 @@
+ion-label {
+    padding-bottom: 20px;
+}
+
+ion-input {
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    display: block;
+}
+
+ion-row.d-flex {
+    display: flex;
+    justify-content: space-between;
+    button {
+        width: 100%;
+        display: inline-block;
+        padding: 10px 0px;
+        border-radius: 10px;
+        outline: none;
+    }
+    .cancel {
+        background-color: #cccccc;
+        color: #000000;
+    }
+    .addItem {
+        background-color: #3880ff;
+        color: #ffffff;
+    }
+    .delete {
+        background-color: #707070;
+        color: #000000;
+    }
+}
+
+.button {
+    --vertical-align: middle;
+    --padding-top: 50%;
+}

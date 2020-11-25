@@ -30,7 +30,11 @@ export class StorageService {
   getItems():Promise<Item[]> {
     return this.storage.get(ITEMS_KEY);
   }
-  
+  getUserdata(){
+    return this.storage.get(ITEMS_KEY).then((users)=>{
+      return users;
+     });
+  }
   // Update
   updateItem( item:Item) : Promise<any> {
     return this.storage.get(ITEMS_KEY).then((items: Item[]) => {

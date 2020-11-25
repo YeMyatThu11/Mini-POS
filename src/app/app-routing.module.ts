@@ -30,7 +30,27 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  }
+  },
+  {
+    path: 'add-item-home',
+    loadChildren: () => import('./add-item-home/add-item-home.module').then( m => m.AddItemHomePageModule)
+  },
+  {
+    path: 'add-items',
+    loadChildren: () => import('./pages/add-items/add-items.module').then( m => m.AddItemsPageModule)
+  },
+  {
+    path: 'update-items\{{data}}',
+    loadChildren: () => import('./pages/update-items/update-items.module').then( m => m.UpdateItemsPageModule)
+  },
+  {
+    path: 'show-items',
+    loadChildren: () => import('./pages/show-items/show-items.module').then( m => m.ShowItemsPageModule)
+  },
+  {
+    path: 'total-price',
+    loadChildren: () => import('./pages/total-price/total-price.module').then( m => m.TotalPricePageModule)
+  },
 ];
 
 @NgModule({

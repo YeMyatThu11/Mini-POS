@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ModalController } from '@ionic/angular';
-// import {AddItemToCardPage} from '../add-item-to-card/add-item-to-card.page';
+import {AddItemHomePage} from '../add-item-home/add-item-home.page';
 import {
   BarcodeScanner,
   BarcodeScannerOptions,
@@ -45,7 +45,12 @@ export class HomePage implements OnInit {
   constructor(private barcodeScanner: BarcodeScanner,private modalController: ModalController) {}
 
   ngOnInit() {}
-  
+  async showModal(){
+    const modal=await this.modalController.create({
+      component:AddItemHomePage
+    });
+    return await modal.present();
+  }
   scan() {
     this.options = {
       prompt: "Scan your barcode",

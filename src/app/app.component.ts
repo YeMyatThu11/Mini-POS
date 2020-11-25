@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'All Items Lists',
-      url: '/items-lists',
+      url: '/show-items',
       icon: 'megaphone'
     },
     {
