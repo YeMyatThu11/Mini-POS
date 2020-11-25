@@ -19,10 +19,10 @@ const routes: Routes = [
     path: 'items-lists',
     loadChildren: () => import('./items-lists/items-lists.module').then( m => m.ItemsListsPageModule)
   },
-  {
-    path: 'recent',
-    loadChildren: () => import('./recent/recent.module').then( m => m.RecentPageModule)
-  },
+  // {
+  //   path: 'recent',
+  //   loadChildren: () => import('./recent/recent.module').then( m => m.RecentPageModule)
+  // },
   {
     path: 'about',
     loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)

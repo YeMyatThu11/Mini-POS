@@ -9,6 +9,27 @@
 
 <ion-content >
   <div class="home">
+    <ion-card *ngFor="let item of buyItemList;let n=index">
+      <div class="item-upper">
+        <div>
+          <p class="item-bold">{{n+1}}  {{item.name}} <small>/{{item.price}}Ks</small> </p>
+          <small>1234567</small>
+        </div>
+        <ion-button color="white" class="edit-btn">
+          <ion-icon name="ellipsis-vertical-outline" color="dark"></ion-icon>
+        </ion-button>
+      </div>
+      <div class="item-lower">
+        <div class="item-spec">
+          <p>Total:</p>
+          <p class="item-bold">{{item.price}}</p>
+        </div>
+        <div class="item-spec">
+          <p>Qty:</p>
+          <p class="item-bold">1</p>
+        </div>
+      </div>
+    </ion-card>
     <ion-button class="add-btn" (click)="scan()">Add Item <ion-icon name="add-outline" class="addItem"></ion-icon></ion-button>
   </div>
  
