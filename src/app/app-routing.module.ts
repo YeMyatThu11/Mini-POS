@@ -48,6 +48,10 @@ const routes: Routes = [
     path: 'total-price',
     loadChildren: () => import('./pages/total-price/total-price.module').then( m => m.TotalPricePageModule)
   },
+  {
+    path: 'edit-item-home',
+    loadChildren: () => import('./edit-item-home/edit-item-home.module').then( m => m.EditItemHomePageModule)
+  },
 ];
 
 @NgModule({

@@ -15,14 +15,14 @@
           <p class="item-bold">{{n+1}}  {{item.name}} <small>/{{item.price}}Ks</small> </p>
           <small>{{item.code}}</small>
         </div>
-        <ion-button color="white" class="edit-btn">
-          <ion-icon name="ellipsis-vertical-outline" color="dark"></ion-icon>
+        <ion-button color="white" class="edit-btn" (click)="editSaleItem(item)">
+          <ion-icon name="ellipsis-vertical-outline" color="dark" ></ion-icon>
         </ion-button>
       </div>
       <div class="item-lower">
         <div class="item-spec">
           <p>Total:</p>
-          <p class="item-bold">{{item.total}}</p>
+          <p class="item-bold ion-text-center">{{item.total}}</p>
         </div>
         <div class="item-spec">
           <p>Qty:</p>

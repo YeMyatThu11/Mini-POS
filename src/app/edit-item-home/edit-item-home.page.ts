@@ -1,20 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import {  ModalController } from '@ionic/angular';
-import { FormControl, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms'; 
-import {StorageService,Item} from '../services/storage.service';
+import { FormControl, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import {BuyItemService} from '../services/buy-item.service';
-import {
-  BarcodeScanner,
-  BarcodeScannerOptions,
-} from "@ionic-native/barcode-scanner/ngx";
+import { BarcodeScanner,BarcodeScannerOptions} from "@ionic-native/barcode-scanner/ngx";
+import {StorageService,Item} from '../services/storage.service';
+
 @Component({
-  selector: 'app-add-item-home',
-  templateUrl: './add-item-home.page.html',
-  styleUrls: ['./add-item-home.page.scss'],
+  selector: 'app-edit-item-home',
+  templateUrl: './edit-item-home.page.html',
+  styleUrls: ['./edit-item-home.page.scss'],
 })
-export class AddItemHomePage implements OnInit {
-  
-   saleItem={
+export class EditItemHomePage implements OnInit {
+  saleItem={
     code:"",
     name:"",
     price:"",
@@ -54,18 +51,15 @@ export class AddItemHomePage implements OnInit {
       this.localItems=this.localItems.concat(res) ; 
       console.log(this.localItems);
     });
-    
   }
   public closeModal() {
     this.modalController.dismiss({
       'dismissed': true
     });
   }
-  
   cancel() {
     this.modalController.dismiss();
   }
-
   scan() {
     this.options = {
       prompt: "Scan your barcode",
@@ -96,24 +90,21 @@ export class AddItemHomePage implements OnInit {
     this.saleItem.name=name;
   }
   qtyChange(){
-      if(Number.isInteger(parseInt(this.saleItem.qty))){
-        this.saleItem.total=parseInt(this.saleItem.qty) * parseInt(this.saleItem.price);
-      }
+    if(Number.isInteger(parseInt(this.saleItem.qty))){
+      this.saleItem.total=parseInt(this.saleItem.qty) * parseInt(this.saleItem.price);
+    }
     console.log(this.saleItem);
   }
-  addItemToHome(){
+  editItemToHome(){
     if(this.saleItem.code && this.saleItem.qty && this.saleItem.name && this.saleItem.price){
       let item={text:this.saleItem.code}
       if(this.doesItemExit(item)){
-        console.log("ok");
-        console.log(this.saleItem);
-        this.buyItemService.addItemList(this.saleItem);
-        console.log(this.buyItemService.getItemList()); 
+        this.buyItemService.updateItemList(this.saleItem);
         this.closeModal();
       }
-      else{
-        console.log("No");
-      }
+    } 
+    else{
+      console.log("Not");
     }
   }
 }

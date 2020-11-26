@@ -4,7 +4,13 @@ ion-card {
         display: block;
     }
 }
-
+ion-toolbar{
+    color: #fff;
+    --background:#1F63AE;
+    ion-buttons{
+        position: absolute;
+    }
+}
 .button {
     ion-button {
         padding-top: 15px;

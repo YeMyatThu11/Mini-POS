@@ -49,3 +49,24 @@ ion-button {
     --box-shadow: none;
     text-transform: initial;
 }
+
+.my-modalCss .modal-wrapper {
+    height: 70%;
+     top: 15%;
+     position: absolute; 
+     display: block;  
+  
+  
+ }
+
+.editText{
+    .action-sheet-title{
+        color: #1F63AE!important;
+    }
+   
+}
+.editIcon {
+    ion-icon{
+        color: #1F63AE!important;
+    }
+}
