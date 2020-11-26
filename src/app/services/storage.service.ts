@@ -30,9 +30,9 @@ export class StorageService {
   getItems():Promise<Item[]> {
     return this.storage.get(ITEMS_KEY);
   }
-  getUserdata(){
-    return this.storage.get(ITEMS_KEY).then((users)=>{
-      return users;
+  getItemdata(){
+    return this.storage.get(ITEMS_KEY).then((items)=>{
+      return items;
      });
   }
   // Update
@@ -58,7 +58,6 @@ export class StorageService {
       if (!items || items.length === 0) {
         return null;
       }
-
       let toKeep: Item[] = [];
       for (let i of items) {
         if (i.code !== code) {

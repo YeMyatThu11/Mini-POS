@@ -19,7 +19,7 @@ export class ShowItemsPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.storageService.getUserdata().then((res) => {
+    this.storageService.getItemdata().then((res) => {
       this.dbData = res;
     });
   }
@@ -30,7 +30,7 @@ export class ShowItemsPage implements OnInit {
     });
     await modal.present();
     modal.onDidDismiss().then((data)=> {
-      this.storageService.getUserdata().then((res) => {
+      this.storageService.getItemdata().then((res) => {
         this.dbData = res;
       });
     })
@@ -48,7 +48,7 @@ export class ShowItemsPage implements OnInit {
 
      await modal.present();
      modal.onDidDismiss().then((data)=> {
-      this.storageService.getUserdata().then((res) => {
+      this.storageService.getItemdata().then((res) => {
         this.dbData = res;
       });
     })

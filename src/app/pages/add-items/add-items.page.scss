@@ -23,8 +23,9 @@ ion-row.d-flex {
         outline: none;
     }
     .cancel {
-        background-color: #E5E5E5;
+        --background: #E5E5E5;
         color: #000000;
+        padding: 10px;
     }
     .addItem {
         background-color: #3880ff;

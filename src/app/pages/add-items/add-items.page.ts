@@ -38,6 +38,7 @@ export class AddItemsPage implements OnInit {
         Validators.required,
       ]),
     });
+    
   }
   public closeModal() {
     this.modalCtrl.dismiss({
