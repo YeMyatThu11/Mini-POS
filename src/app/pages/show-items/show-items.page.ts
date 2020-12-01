@@ -3,6 +3,8 @@ import { ModalController } from "@ionic/angular";
 import { AddItemsPage } from "../add-items/add-items.page";
 import { UpdateItemsPage } from "../update-items/update-items.page";
 import { StorageService } from "../../services/storage.service";
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: "app-show-items",
@@ -10,12 +12,14 @@ import { StorageService } from "../../services/storage.service";
   styleUrls: ["show-items.page.scss"],
 })
 export class ShowItemsPage implements OnInit {
+  
   dbData: any;
   updateData: any;
   dataReturned: any;
   constructor(
     public modalController: ModalController,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -52,5 +56,9 @@ export class ShowItemsPage implements OnInit {
         this.dbData = res;
       });
     })
+  }
+  back(){
+    this.router.navigate(['home']);
+   
   }
 }

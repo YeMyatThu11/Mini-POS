@@ -4,7 +4,7 @@ import { FormControl, FormBuilder, FormGroup, NgForm, Validators } from '@angula
 import {BuyItemService} from '../services/buy-item.service';
 import { BarcodeScanner,BarcodeScannerOptions} from "@ionic-native/barcode-scanner/ngx";
 import {StorageService,Item} from '../services/storage.service';
-
+import { NavParams } from '@ionic/angular';
 @Component({
   selector: 'app-edit-item-home',
   templateUrl: './edit-item-home.page.html',
@@ -29,8 +29,18 @@ export class EditItemHomePage implements OnInit {
     private formBuilder:FormBuilder,
     private barcodeScanner: BarcodeScanner,
     private storageService:StorageService,
-    private buyItemService:BuyItemService
-  ) { }
+    private buyItemService:BuyItemService,
+    public  navParams:NavParams
+  ) {
+    let items=navParams.get('items');
+    console.log(items);
+    this.saleItem.code=items.code;
+    this.saleItem.name=items.name;
+    this.saleItem.price=items.price;
+    this.saleItem.qty=items.qty;
+    this.saleItem.total=items.total;
+    console.log(this.saleItem);
+   }
 
   ngOnInit() {
     this.addItemToCart=this.formBuilder.group({
